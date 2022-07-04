@@ -43,6 +43,9 @@ button {
 	background-color: transparent; 
 	color: inherit;
 }
+button, input {
+    overflow: visible;
+}
 a, a:visited {
 	text-decoration: none;
 	color: inherit;
@@ -1535,6 +1538,7 @@ align-items: center;
 	margin: auto;
 	overflow: auto;
 	position: relative;
+	overflow: visible;
 }
 
 .feedback-form {
