@@ -13,7 +13,7 @@ function openModal(elem) {
 }
 
 function closeModal(e) {
-   if (e.target.classList.contains('popup-close') || e.target.classList.contains('blackout') || e.target.classList.contains('blackout-menu') || e.target.classList.contains('modal-nav__link')) {
+   if (e.target.classList.contains('popup-close') || e.target.classList.contains('context') || e.target.classList.contains('blackout-menu') || e.target.classList.contains('modal-nav__link')) {
       e.target.closest('.popup').classList.remove('is-active');
       body.classList.remove('locked');
    }
@@ -56,12 +56,12 @@ document.querySelectorAll('.dropdown').forEach(function (dd) {
    const dropDownInput = dd.querySelector('.dropdown__input-hidden');
    const dropDownArrow = dd.querySelector('.dropdown__arrow');
 
-   // Клик по кнопке - открытие/закрытие дропдауна
+   // Клик по кнопке - открытие/закрытие dropdown
    dropDownBtn.addEventListener('click', function () {
        dropDownMenu.classList.toggle('dropdown-menu_visible');
    });
 
-    // Выбор элемента из списка / изменить активное / закрытие дропдауна
+    // Выбор элемента из списка / изменить активное / закрытие dropdown
 
    dropDownItems.forEach(function (listItem) {
        listItem.addEventListener('click', function (e) {
@@ -73,7 +73,7 @@ document.querySelectorAll('.dropdown').forEach(function (dd) {
        })
    })
 
-   // Клик снаружи дропдауна. Закрытие дропдауна
+   // Клик снаружи dropdown. Закрытие dropdown
    document.addEventListener('click', function (e) {
        if (e.target !== dropDownBtn) {
            dropDownMenu.classList.remove('dropdown-menu_visible');
