@@ -1393,8 +1393,8 @@ align-items: center;
         
     }
 	&__body {
-		width: 100%;
-		background: #E7E6E4;
+		width: 100%; 
+		background-color: #E7E6E4;
 		position: absolute;
 		display: none;
 		transition: .3s ease-in-out;
@@ -1424,6 +1424,7 @@ align-items: center;
 .dropdown-menu {
     &_visible {
         display: block;
+		
     }
 }
 .dropdown.active {
