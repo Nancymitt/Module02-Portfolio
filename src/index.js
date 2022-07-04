@@ -45,36 +45,48 @@ window.addEventListener('keydown', e => {
    })
 })
      
-// select
+// dropdown
 
-let select = function() {
-   let selectResult = document.querySelectorAll('.select__result');
-   let selectItem = document.querySelectorAll('.select__item');
+document.querySelectorAll('.dropdown').forEach(function (dd) {
 
-  
-   selectResult.forEach(item => {
-      item.addEventListener('click', selectToggle) 
+
+   const dropDownMenu = dd.querySelector('.dropdown-menu');
+   const dropDownBtn = dd.querySelector('.dropdown__btn');
+   const dropDownItems = dropDownMenu.querySelectorAll('.dropdown__item');
+   const dropDownInput = dd.querySelector('.dropdown__input-hidden');
+   const dropDownArrow = dd.querySelector('.dropdown__arrow');
+
+   // Клик по кнопке - открытие/закрытие дропдауна
+   dropDownBtn.addEventListener('click', function () {
+       dropDownMenu.classList.toggle('dropdown-menu_visible');
    });
 
-   selectItem.forEach(item => {
-      item.addEventListener('click', selectChoose)
+    // Выбор элемента из списка / изменить активное / закрытие дропдауна
+
+   dropDownItems.forEach(function (listItem) {
+       listItem.addEventListener('click', function (e) {
+           e.stopPropagation();
+           dropDownBtn.innerText = this.innerText;
+           dropDownInput.value = this.dataset.value;
+           dropDownMenu.classList.remove('dropdown-menu_visible');
+           dropDownArrow.classList.remove('arrow-active');
+       })
+   })
+
+   // Клик снаружи дропдауна. Закрытие дропдауна
+   document.addEventListener('click', function (e) {
+       if (e.target !== dropDownBtn) {
+           dropDownMenu.classList.remove('dropdown-menu_visible');
+           dropDownArrow.classList.remove('arrow-active');
+       }
+   })
+
+   // Клик по кнопке - разворот стрелки
+   dropDownBtn.addEventListener('click', function () {
+       dropDownArrow.classList.toggle('arrow-active');
    });
 
-   function selectToggle() {
-      this.parentElement.classList.toggle('active');
-   };
-
-   function selectChoose() {
-      let text = this.innerText,
-         select = this.closest('.select'),
-         resultText = select.querySelector('.select__result');
-      resultText.innerText = text;
-      select.classList.remove('active');
-   };
-  
-};
-
-select();
+}); 
 
 // Smooth Scroll
 const links = document.querySelectorAll(".header__link");

@@ -198,7 +198,7 @@ align-items: center;
 	width: 100%;
 } 
 
-// <section class="profession">
+// profession
 
 .profession {
 	margin-top: 12.4rem;
@@ -450,6 +450,7 @@ align-items: center;
 }
 .discuss {
 	font-size: 1.6rem;
+	font-weight: 700;
 	display: flex;
 	align-items: center;
 	gap: 1.5rem;	
@@ -475,13 +476,13 @@ align-items: center;
 				width: 10px;
 			}			
 		}
-		
+	
 		&:hover {
 			&::before {
 				content: '';
 				width: 100%;
 				height: 2px;
-				background: $mainColor;
+				background: $textColor;
 				position: absolute;
 				bottom: -50%;
 			}			
@@ -696,7 +697,7 @@ align-items: center;
 	}
 }
 
-// <section class="about-me">
+// about-me
 
 .info-grid {
 
@@ -747,7 +748,7 @@ align-items: center;
 	}
 }
 
-// <section> - work-stage
+// work-stage
 
 
 .work-stage {
@@ -814,7 +815,7 @@ align-items: center;
 	}
 }
 
-// <section class="portfolio">
+// portfolio
 
 .portfolio {
 
@@ -916,7 +917,7 @@ align-items: center;
 	}
 }
 
-// <section class="advantages">
+// advantages
 
 .advantages {
 	display: grid;
@@ -970,7 +971,7 @@ align-items: center;
 	}	
 }
 
-// section - scope
+// scope
 
 .scope {
 	display: grid;
@@ -1081,7 +1082,7 @@ align-items: center;
 	}
 }
 
-//section - prices
+// prices
 
 
 .prices {
@@ -1228,7 +1229,7 @@ align-items: center;
 }
 
 
-// <section class="feedback">
+// feedback
 
 
 .feedback {
@@ -1361,7 +1362,8 @@ align-items: center;
 	}
 }
 
-.select {
+// dropdown
+.dropdown {
 	position: relative;
 	margin-bottom: 4rem;
 	
@@ -1369,7 +1371,7 @@ align-items: center;
 		margin-bottom: 3rem;
 	}
 
-	&__result {
+	&__btn {
 		display: block;
 		font-size: 1.2rem;
 		color: $textColor;
@@ -1380,28 +1382,33 @@ align-items: center;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		&::after {
-			content: '';
-			display: block;
-			background: url(../images/arrow-select.svg) no-repeat;
-			width: 12px;
-			height: 7px;
-			transition: .3s;			
-		}
-		&:focus {
-			&::after {
-				transform: rotate(180deg);
-			}
-		}
 		@media (max-width: $mob_460) {
 			font-size: 1rem;
 		}
-	}	
+	}
+    &__arrow {
+        display: block;
+        position: absolute;
+        background-image: url(../images/arrow-select.svg);
+        background-repeat: no-repeat;
+        width: 12px;
+        height: 7px;
+        top: 54%;
+        right: 24px;
+        transform: translateY(-50%);
+        pointer-events: none;  
+        transition: .3s ease-in-out; 
+        @media (max-width: 417px) {
+            right: 26px;
+        }
+        
+    }
 	&__body {
 		width: 100%;
 		background: #E7E6E4;
 		position: absolute;
 		display: none;
+		transition: .3s ease-in-out;
 	}
 
 	&__item {
@@ -1415,13 +1422,26 @@ align-items: center;
 			color: $textColor;
 		}
 	}
+    &__input-hidden {
+        display: none;
+    }
 }
 
-.select.active .select__body {
+.arrow-active {
+    transform: rotate(180deg);
+    top: 48%;
+}
+
+.dropdown-menu {
+    &_visible {
+        display: block;
+    }
+}
+.dropdown.active {
 	display: block;
 }
 
-// <footer class="footer" id="footer">
+// footer
 
 .footer {
 	margin-bottom: 4rem;	
@@ -1495,8 +1515,7 @@ align-items: center;
 }
 
 
-// popup - обсудить проект 
-
+// popup
 
 .popup {
 	width: 100%;
