@@ -1054,6 +1054,12 @@ section {
         width: 8vw;
       }
     }
+    &_css {
+      width: 67.1px;
+      @media (max-width: $tab_960) {
+        width: 5.4vw;
+      }
+    }
   }
 
   &__text {
